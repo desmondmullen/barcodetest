@@ -4,13 +4,32 @@
     <head>
         <title>Barcode recognition with JavaScript</title>
         <script type="text/javascript" src="getBarcode.js"></script>
+        <script>
+            function loadImage() {
+                var theImage = document.createElement("img");
+                var imageID = document.createAttribute("id");
+                imageID.value = "barcode";
+                theImage.setAttributeNode(imageID);
+                var imageSrc = document.createAttribute("src");
+                imageSrc.value = "barcode.jpg";
+                theImage.setAttributeNode(imageSrc);
+                document.body.appendChild(theImage);
+            }
+        </script>
     </head>
 
     <body>
-        <!-- <img id="barcode" src="barcode.jpg" /> -->
-        <input id="barcode" type="file" accept="image/*" capture="camera" />
+        <img id="barcode" src="barcode.jpg" />
         <br />
         <button onclick="alert(getBarcodeFromImage('barcode'))">Scan</button>
+        <br />
+        <hr />
+        <br />
+        <!-- <input id="barcode2" type="file" accept="image/*" capture="camera" /> -->
+        <input id="barcode2" type="file" name="image" accept="image/*" capture>
+        <button onclick="loadImage()">loadImage</button>
+        <br />
+        <button onclick="alert(getBarcodeFromImage('barcode2'))">Scan</button>
     </body>
 
 </html>

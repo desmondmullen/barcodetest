@@ -18,6 +18,7 @@ var UPC_SET = {
 
 getBarcodeFromImage = function (imgOrId) {
     var doc = document,
+        // img = "object" == typeof imgOrId ? imgOrId : '<img id="barcode" src="barcode.jpg" />',
         img = "object" == typeof imgOrId ? imgOrId : doc.getElementById(imgOrId),
         canvas = doc.createElement("canvas"),
         ctx = canvas.getContext("2d"),
@@ -28,6 +29,7 @@ getBarcodeFromImage = function (imgOrId) {
         slineStep = height / (numLines + 1);
     canvas.width = width;
     canvas.height = height;
+    console.log(img);
     ctx.drawImage(img, 0, 0);
     while (numLines--) {
         console.log(spoints[ numLines ]);
