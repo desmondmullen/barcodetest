@@ -84,9 +84,16 @@ getBarcodeFromImage = function (imgOrId) {
                 Math.round(group[ 3 ] / bar)
             ];
             code += u[ digits.join('') ] || u[ digits.reverse().join('') ] || 'X';
-            if (12 == code.length) { return code; break; }
+            if (12 == code.length) {
+                alert(code);
+                return code;
+                break;
+            }
         }
-        if (-1 == code.indexOf('X')) { return code || false; }
+        if (-1 == code.indexOf('X')) {
+            alert(code);
+            return code || false;
+        }
     }
     return false;
 };
